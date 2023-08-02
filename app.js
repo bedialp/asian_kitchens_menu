@@ -86,11 +86,11 @@ const menu = [
 const sectionCon = document.querySelector(".section-center");
 
 const showMenu = (category) => {
-  sectionCon.innerHTML = "";
-  category.forEach((food) => {
-    const menuItem = document.createElement("div");
-    menuItem.classList.add('menu-items', 'col-lg-6', 'col-sm-12')
-    menuItem.innerHTML = `
+    sectionCon.innerHTML = "";
+    category.forEach((food) => {
+        const menuItem = document.createElement("div");
+        menuItem.classList.add('menu-items', 'col-lg-6', 'col-sm-12')
+        menuItem.innerHTML = `
   <img src="${food.img}" class="photo">
   <div class="menu-info">
     <div class="menu-title">
@@ -101,8 +101,8 @@ const showMenu = (category) => {
   </div>
 `;
 
-    sectionCon.appendChild(menuItem);
-  });
+        sectionCon.appendChild(menuItem);
+    });
 };
 
 
@@ -127,16 +127,16 @@ allBtn.addEventListener("click", () => showMenu(menu));
 let buttons = [...new Set(menu.map((item) => item.category))];
 
 buttons.forEach(item => {
-  let arr = menu.filter((food) => {
-    return food.category === item;
-  });
-  let btn = document.createElement("button");
-  btn.classList.add('btn-item')
-  btn.innerText = item;
-  btn.addEventListener("click", () => {
-    showMenu(arr)
-  });
-  return btnCon.appendChild(btn);
+    let arr = menu.filter((food) => {
+        return food.category === item;
+    });
+    let btn = document.createElement("button");
+    btn.classList.add('btn-item')
+    btn.innerText = item;
+    btn.addEventListener("click", () => {
+        showMenu(arr)
+    });
+    return btnCon.appendChild(btn);
 });
 
 
